@@ -1,6 +1,6 @@
 from server import lifespan
-from api.routers import services
 from fastapi import FastAPI, Request
+from api.routers import services, news
 from fastapi.responses import JSONResponse
 
 app = FastAPI(title="Turismo vivo Backend",
@@ -16,6 +16,7 @@ async def value_error_exception_handler(request: Request, exc: ValueError):
     )
 
 # Importamos los routers
+app.include_router(news.router)
 app.include_router(services.router)
 
 # Endpoint para validar

@@ -7,6 +7,7 @@ class Settings(BaseSettings):
     SUPABASE_PROJECT: str
     SUPABASE_API_KEY: str
     SUPABASE_DB_URI: str
+    SUPABSE_BUCKET: str
     
     class Config:
         env_file = str(BASE_DIR / ".env")
