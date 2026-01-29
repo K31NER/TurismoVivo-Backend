@@ -6,6 +6,7 @@ class ServiceStatus(str, Enum):
     ACTIVE = "ACTIVE"
     EXPIRED = "EXPIRED"
     DRAFT = "DRAFT"
+    
 class Service:
     def __init__(
         self,

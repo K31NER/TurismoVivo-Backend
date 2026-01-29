@@ -29,7 +29,7 @@ async def init_db():
     """ Inicializa las base de datos"""
     # Importamos los modelos
     from infrastructure.database.models.services import Services
-    
+    from infrastructure.database.models.news import News
     try:
         async with engine.begin() as conn:
             await conn.run_sync(SQLModel.metadata.create_all)

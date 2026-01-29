@@ -23,8 +23,6 @@ class UseServices:
     async def create_service(self, data: Service, conn: Any):
         """ Crea un nuevo servicio """
         
-        data.validate()# Validamos la entrada
-        
         service = await self.services_repo.create_service(data,conn)
         
         return service
@@ -35,8 +33,6 @@ class UseServices:
         # Aseguramos que el ID del objeto coincida con el ID que queremos actualizar
         if data.id is None:
             data.id = id
-        
-        data.validate()# Validamos la entrada
         
         service = await self.services_repo.update_service(id,data,conn)
         
