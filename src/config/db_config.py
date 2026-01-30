@@ -28,8 +28,11 @@ SessionDep = Annotated[AsyncSession, Depends(get_session)]
 async def init_db():
     """ Inicializa las base de datos"""
     # Importamos los modelos
-    from infrastructure.database.models.services import Services
     from infrastructure.database.models.news import News
+    from infrastructure.database.models.courses import Courses
+    from infrastructure.database.models.services import Services
+    
+    # Creamos las tablas
     try:
         async with engine.begin() as conn:
             await conn.run_sync(SQLModel.metadata.create_all)
